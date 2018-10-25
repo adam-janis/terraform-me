@@ -64,7 +64,7 @@ First of all, let's create Google storage bucket in our project, replace **YOUR_
 gsutil mb -p {{project-id}} gs://tf-state-terraform-me-YOUR_NAME
 ```
 
-Then, open **`providers.tf`** file <walkthrough-editor-open-file filePath="providers.tf" text="Open providers file"></walkthrough-editor-open-file> and uncomment backend configuration. (+ change **bucket** to match your created bucket name)
+Then, <walkthrough-editor-open-file filePath="providers.tf" text="open providers.tf file"></walkthrough-editor-open-file> and uncomment backend configuration. (+ change **bucket** to match your created bucket name)
 
 Afterwards you can run an init, which will do the migration to the remote backend for you.
 ```bash
