@@ -59,11 +59,14 @@ cat terraform.tfstate
 
 Best practise is to store state remotely so the team can easily collaborate, so let's move it!
 
-Go to https://console.cloud.google.com/storage/browser?project={{project-id}} and create new bucket, name it **terraform-me-**
+First of all, let's create Google storage bucket
+```bash
+gsutil mb gs://tf-state-terraform-me-YOUR_NAME
+```
 
-Uncomment providers.tf
+Then, open `providers.tf` file <walkthrough-editor-open-file filePath="providers.tf"></walkthrough-editor-open-file> and uncomment backend configuration. (+ change **bucket** to match your created bucket name)
 
-Afterwards you can run an init, which will do state migration to remote backend for you.
+Afterwards you can run an init, which will do the migration to the remote backend for you.
 ```bash
 terraform init
 ```
