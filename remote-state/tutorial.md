@@ -55,7 +55,7 @@ Let's have a look what is inside your state file.
 cat terraform.tfstate
 ```
 
-### Remote state file
+### Remote state 
 
 Best practise is to store state remotely so the team can easily collaborate, so let's move it!
 
@@ -64,7 +64,7 @@ First of all, let's create Google storage bucket in our project, replace **YOUR_
 gsutil mb -p {{project-id}} gs://tf-state-terraform-me-YOUR_NAME
 ```
 
-Then, open `providers.tf` file <walkthrough-editor-open-file filePath="providers.tf"></walkthrough-editor-open-file> and uncomment backend configuration. (+ change **bucket** to match your created bucket name)
+Then, open **`providers.tf`** file <walkthrough-editor-open-file filePath="providers.tf"></walkthrough-editor-open-file> and uncomment backend configuration. (+ change **bucket** to match your created bucket name)
 
 Afterwards you can run an init, which will do the migration to the remote backend for you.
 ```bash
