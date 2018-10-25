@@ -12,7 +12,7 @@ Terraform provisions real GCP resources, so anything you create in this session 
 
 ## Terraforming!
 
-Let's use {{project-id}} with Terraform! Click the Cloud Shell icon below to copy the command
+Let's use **{{project-id}}** with Terraform! Click the Cloud Shell icon below to copy the command
 to your shell, and then run it from the shell by pressing Enter/Return. Terraform will pick up
 the project name from the environment variable.
 
@@ -59,9 +59,9 @@ cat terraform.tfstate
 
 Best practise is to store state remotely so the team can easily collaborate, so let's move it!
 
-First of all, let's create Google storage bucket
+First of all, let's create Google storage bucket in our project, replace **YOUR_NAME** as it needs to be unique.
 ```bash
-gsutil mb gs://tf-state-terraform-me-YOUR_NAME
+gsutil mb -p {{project-id}} gs://tf-state-terraform-me-YOUR_NAME
 ```
 
 Then, open `providers.tf` file <walkthrough-editor-open-file filePath="providers.tf"></walkthrough-editor-open-file> and uncomment backend configuration. (+ change **bucket** to match your created bucket name)
