@@ -39,28 +39,31 @@ yes
 ```
 
 
-## Post-Apply
+## Local remote state
 
 ### Editing your config
 
-Now you've provisioned your resources in GCP! If you run a "plan", you should see no changes needed.
+Now you've provisioned your resources with Terraform! If you run a "plan", you should see no changes needed.
 
 ```bash
 terraform plan
 ```
 
-So let's make a change! Try editing a number, or appending a value to the name in the editor. Then,
-run a 'plan' again.
+Terraform state is now stored locally but best practise is to store it remotely, let's change it!
+
+But first, let's have a look what is inside..
 
 ```bash
-terraform plan
+cat ./terraform/terraform.tfstate
 ```
 
-Afterwards you can run an apply, which implicitly does a plan and shows you the intended changes
-at the 'yes' prompt.
+- create bucket
 
+- uncomment providers.tf
+
+Afterwards you can run an init, which will do state migration to remote backend for you.
 ```bash
-terraform apply
+terraform init
 ```
 
 ```bash
