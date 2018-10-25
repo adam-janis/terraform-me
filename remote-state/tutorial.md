@@ -39,9 +39,9 @@ yes
 ```
 
 
-## Local remote state
+## Terraform state
 
-### Editing your config
+### Local 
 
 Now you've provisioned your resources with Terraform! If you run a "plan", you should see no changes needed.
 
@@ -49,17 +49,19 @@ Now you've provisioned your resources with Terraform! If you run a "plan", you s
 terraform plan
 ```
 
-Terraform state is now stored locally but best practise is to store it remotely, let's change it!
-
-But first, let's have a look what is inside..
+Let's have a look what is inside your state file.
 
 ```bash
-cat ./terraform/terraform.tfstate
+cat terraform.tfstate
 ```
 
-- create bucket
+### Remote state file
 
-- uncomment providers.tf
+Best practise is to store state remotely so the team can easily collaborate, so let's move it!
+
+Go to https://console.cloud.google.com/storage/browser?project={{project-id}} and create new bucket, name it **terraform-me-**
+
+Uncomment providers.tf
 
 Afterwards you can run an init, which will do state migration to remote backend for you.
 ```bash
